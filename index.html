@@ -1,0 +1,153 @@
+ <!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#172938" />
+    <title>Factura Ruta</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">LUNA LOGISTIC SERVICES</p>
+          <h1>Factura Ruta</h1>
+        </div>
+        <button class="icon-button" id="installBtn" type="button" title="Instalar app" hidden>
+          <span aria-hidden="true">↓</span>
+        </button>
+      </header>
+
+      <section class="summary-strip" aria-label="Resumen rápido">
+        <article>
+          <span>Hoy</span>
+          <strong id="todayTotal">$0.00</strong>
+        </article>
+        <article>
+          <span>Mes</span>
+          <strong id="monthTotal">$0.00</strong>
+        </article>
+        <article>
+          <span>Facturas</span>
+          <strong id="invoiceCount">0</strong>
+        </article>
+      </section>
+
+      <nav class="tabs" aria-label="Secciones">
+        <button class="tab is-active" type="button" data-view="invoiceView">Factura</button>
+        <button class="tab" type="button" data-view="recordsView">Historial</button>
+        <button class="tab" type="button" data-view="reportsView">Recuento</button>
+      </nav>
+
+      <section class="view is-active" id="invoiceView">
+        <form id="invoiceForm" class="panel">
+          <div class="panel-title">
+            <h2>Nueva factura</h2>
+            <button class="ghost-button" id="clearFormBtn" type="button">Limpiar</button>
+          </div>
+
+          <div class="field-grid two">
+            <label>
+              <span>No. factura</span>
+              <input id="invoiceNumber" name="invoiceNumber" required />
+            </label>
+            <label>
+              <span>Fecha</span>
+              <input id="invoiceDate" name="invoiceDate" type="date" required />
+            </label>
+          </div>
+
+          <label>
+            <span>Cliente</span>
+            <input id="clientName" name="clientName" placeholder="Nombre o empresa" required />
+          </label>
+
+          <div class="field-grid two">
+            <label>
+              <span>Email</span>
+              <input id="clientEmail" name="clientEmail" type="email" placeholder="cliente@email.com" />
+            </label>
+            <label>
+              <span>WhatsApp</span>
+              <input id="clientPhone" name="clientPhone" inputmode="tel" placeholder="+507..." />
+            </label>
+          </div>
+
+          <div class="field-grid two">
+            <label>
+              <span>Origen</span>
+              <input id="origin" name="origin" placeholder="Punto de carga" />
+            </label>
+            <label>
+              <span>Destino</span>
+              <input id="destination" name="destination" placeholder="Punto de entrega" />
+            </label>
+          </div>
+
+          <label>
+            <span>Tipo de servicio (PDF)</span>
+            <input id="serviceNotes" name="serviceNotes" placeholder="Acarreo Residencial / Comercial" />
+          </label>
+
+          <div class="items-head">
+            <h3>Conceptos</h3>
+            <button class="small-button" id="addItemBtn" type="button">Agregar</button>
+          </div>
+          <div id="itemsList" class="items-list"></div>
+
+          <div class="totals-box">
+            <label>
+              <span>Impuesto %</span>
+              <input id="taxRate" name="taxRate" type="number" min="0" max="100" step="0.01" value="0" />
+            </label>
+            <div>
+              <p><span>Subtotal</span><strong id="subtotalValue">$0.00</strong></p>
+              <p><span>Impuesto</span><strong id="taxValue">$0.00</strong></p>
+              <p class="grand"><span>Total</span><strong id="totalValue">$0.00</strong></p>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="primary-button" type="submit">Guardar</button>
+            <button class="secondary-button" id="downloadCurrentBtn" type="button">PDF</button>
+            <button class="secondary-button" id="shareCurrentBtn" type="button">Compartir</button>
+          </div>
+        </form>
+
+        <article class="invoice-preview" id="invoicePreview" aria-label="Vista previa — plantilla LUNA LOGISTIC fija"></article>
+      </section>
+
+      <section class="view" id="recordsView">
+        <div class="panel">
+          <div class="panel-title">
+            <h2>Historial</h2>
+            <input class="search-input" id="searchInvoices" placeholder="Buscar" />
+          </div>
+          <div id="invoiceList" class="invoice-list"></div>
+        </div>
+      </section>
+
+      <section class="view" id="reportsView">
+        <div class="panel">
+          <h2>Recuento generado</h2>
+          <div class="report-grid">
+            <article><span>Diario</span><strong id="dailyReport">$0.00</strong></article>
+            <article><span>Semanal</span><strong id="weeklyReport">$0.00</strong></article>
+            <article><span>Mensual</span><strong id="monthlyReport">$0.00</strong></article>
+            <article><span>Anual</span><strong id="yearlyReport">$0.00</strong></article>
+          </div>
+          <div class="bar-panel">
+            <h3>Últimos 6 meses</h3>
+            <div id="monthBars" class="month-bars"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
