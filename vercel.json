@@ -1,8 +1,13 @@
 {
   "version": 2,
   "name": "factura-ruta-cursor-pack",
-  "builds": [{ "src": "index.html", "use": "@vercel/static" }],
+  "public": true,
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/styles\\.css", "dest": "/styles.css" },
+    { "src": "/app\\.js", "dest": "/app.js" },
+    { "src": "/sw\\.js", "dest": "/sw.js" },
+    { "src": "/manifest\\.webmanifest", "dest": "/manifest.webmanifest" },
+    { "src": "/icon\\.svg", "dest": "/icon.svg" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
