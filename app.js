@@ -1,8 +1,8 @@
 const STORE = "factura-ruta-v1";
 
-/** Plantilla fija — igual a la factura LUNA LOGISTIC (no editable). */
+/** Plantilla fija — igual a la factura LUNA INVOICE (no editable). */
 const INVOICE_TEMPLATE = {
-  companyName: "LUNA LOGISTIC SERVICES",
+  companyName: "LUNA INVOICE",
   tagline: "Traslados simples, en manos de expertos.",
   subtitle: "Servicios Profesionales de Acarreo y Logistica - Panama",
   defaultServiceType: "Acarreo Residencial / Comercial",
@@ -53,8 +53,8 @@ function uid() {
 }
 
 function invoiceSeed() {
-  const next = invoices.length + 1;
-  return `FAC-${String(next).padStart(4, "0")}`;
+  const next = invoices.length + 710;
+  return `FAC-${String(next).padStart(5, "0")}`;
 }
 
 function showToast(message) {

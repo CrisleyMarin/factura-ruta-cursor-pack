@@ -1,11 +1,11 @@
 {
-  "name": "LUNA LOGISTIC",
-  "short_name": "LUNA LOGISTIC",
+  "name": "LUNA INVOICE",
+  "short_name": "LUNA INVOICE",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f7f6",
   "theme_color": "#172938",
-  "description": "App movil de facturacion para LUNA LOGISTIC.",
+  "description": "App movil de facturacion para LUNA INVOICE.",
   "icons": [
     {
       "src": "icon.jpg",

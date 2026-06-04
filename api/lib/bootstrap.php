@@ -183,7 +183,7 @@ function settings_from_row(?array $row): array
 {
     if (!$row) {
         return [
-            'companyName' => 'LUNA LOGISTIC SERVICES',
+            'companyName' => 'LUNA INVOICE',
             'companyTagline' => 'Traslados simples, en manos de expertos.',
             'companySubtitle' => 'Servicios Profesionales de Acarreo y Logistica - Panama',
             'companyTaxId' => '',
@@ -218,7 +218,7 @@ function settings_to_row(array $settings): array
 {
     return [
         'id' => 1,
-        'company_name' => (string) ($settings['companyName'] ?? 'LUNA LOGISTIC SERVICES'),
+        'company_name' => (string) ($settings['companyName'] ?? 'LUNA INVOICE'),
         'company_tagline' => (string) ($settings['companyTagline'] ?? ''),
         'company_subtitle' => (string) ($settings['companySubtitle'] ?? ''),
         'company_tax_id' => (string) ($settings['companyTaxId'] ?? ''),
